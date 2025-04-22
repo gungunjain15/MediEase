@@ -1,0 +1,69 @@
+.contact-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .contact-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #1f2937;
+  }
+  
+  .contact-title span {
+    color: #3b82f6;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    text-align: left;
+  }
+  
+  .contact-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    width: 400px;
+    height: auto;
+  }
+  
+  .contact-info {
+    max-width: 400px;
+  }
+  
+  .office-details, .career-details {
+    margin-bottom: 30px;
+  }
+  
+  .office-details h3,
+  .career-details h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1f2937;
+  }
+  
+  .office-details p,
+  .career-details p {
+    color: #4b5563;
+    margin-bottom: 10px;
+  }
+  
+  .explore-btn {
+    padding: 10px 20px;
+    border: 1px solid #1f2937;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .explore-btn:hover {
+    background-color: #3b82f6;
+    color: #fff;
+    border-color: #3b82f6;
+  }
+  
