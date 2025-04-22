@@ -1,0 +1,129 @@
+.aboutSection {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .heading span {
+    color: #1e3a8a; /* Tailwind's blue-900 */
+  }
+  
+  .contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  .imageContainer {
+    flex: 1 1 40%;
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .textContainer {
+    flex: 1 1 55%;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .textContainer p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .textContainer h4 {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+
+  .chooseUsSection {
+    margin-top: 80px;
+    padding: 20px;
+  }
+  
+  .chooseHeading {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .chooseHeading span {
+    color: #1e3a8a;
+  }
+  
+  .cardContainer {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .chooseUsSection {
+    padding: 60px 20px;
+    background-color: #f9fafb;
+    text-align: center;
+  }
+  
+  .chooseUsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #1f2937;
+  }
+  
+  .boxContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    flex: 1 1 300px;
+    max-width: 320px;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 30px 20px;
+    text-align: left;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .card h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1f2937;
+    transition: color 0.3s ease;
+  }
+  
+  .card p {
+    color: #4b5563;
+    transition: color 0.3s ease;
+  }
+  
+  .card:hover {
+    background-color: #3b82f6; /* blue-500 */
+    transform: translateY(-4px);
+  }
+  
+  .card:hover h4,
+  .card:hover p {
+    color: #ffffff;
+  }
+  
