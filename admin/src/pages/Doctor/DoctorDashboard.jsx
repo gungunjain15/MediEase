@@ -1,32 +1,32 @@
 import React, { useContext, useEffect } from "react";
-import { AdminContext } from "../../context/AdminContext";
-import { toast } from "react-toastify";
+import { DoctorContext } from "../../context/DoctorContext";
 import { AppContext } from "../../context/AppContext";
+import { assets } from "../../assets/assets";
 
-const Dashboard = () => {
-  const { aToken, getDashData, cancelAppointment, dashData } =
-    useContext(AdminContext);
+const DoctorDashboard = () => {
+  const { dToken, dashData, getDashData ,cancelAppointment,completeAppointment} = useContext(DoctorContext);
 
-  const { slotDateFomat } = useContext(AppContext);
+  const { currency, slotDateFormat } = useContext(AppContext);
 
   useEffect(() => {
-    if (aToken) {
+    if (dToken) {
       getDashData();
     }
-  }, [aToken, getDashData]);
+  }, [dToken, getDashData]);
 
   return (
     dashData && (
-      <div className="m-5">
+      <div className="5">
         <div className="flex flex-wrap gap-3">
           {/* Doctors Card */}
           <div className="flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all">
-            <img className="w-14" src={assets.doctor_icon} alt="Doctors" />
+            <img className="w-14" src={assets.earning_icon} alt="Doctors" />
             <div>
               <p className="text-xl font-semibold text-gray-600">
-                {dashData.doctors}
+                {currency}
+                {dashData.earnings}
               </p>
-              <p className="text-gray-400">Doctors</p>
+              <p className="text-gray-400">Earnings</p>
             </div>
           </div>
 
@@ -70,13 +70,13 @@ const Dashboard = () => {
                 >
                   <img
                     className="rounded-full w-10"
-                    src={item.docData.image}
-                    alt={item.docData.name}
+                    src={item.userData.image}
+                    alt={item.userData.image}
                   />
 
                   <div className="flex-1 text-sm">
                     <p className="text-gray-800 font-medium">
-                      {item.docData.name}
+                      {item.userData.name}
                     </p>
                     <p className="text-gray-500">
                       {slotDateFormat(item.slotDate)}
@@ -84,15 +84,29 @@ const Dashboard = () => {
                   </div>
 
                   {item.cancelled ? (
-                <p className="text-red-400 text-xs font-medium">Cancelled</p>
-              ) : item.isCompleted ? <p className="text-green-500 text-xs font-medium">Completed</p>:(
-                <img
-                  className="w-10 cursor-pointer hover:opacity-80"
-                  src={assets.cancel_icon}
-                  alt="Cancel appointment"
-                  onClick={() => cancelAppointment(item._id)}
-                />
-              )}
+                    <p className="text-red-400 text-xs font-medium">
+                      Cancelled
+                    </p>
+                  ) : item.isCompleted ? (
+                    <p className="text-green-500 text-xs font-medium">
+                      Completed
+                    </p>
+                  ) : (
+                    <div className="flex gap-2">
+                      <img
+                        onClick={() => cancelAppointment(item._id)}
+                        className="w-8 h-8 cursor-pointer hover:opacity-80"
+                        src={assets.cancel_icon}
+                        alt="Cancel appointment"
+                      />
+                      <img
+                        onClick={() => completeAppointment(item._id)}
+                        className="w-8 h-8 cursor-pointer hover:opacity-80"
+                        src={assets.complete_icon}
+                        alt="Complete appointment"
+                      />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -103,4 +117,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DoctorDashboard;

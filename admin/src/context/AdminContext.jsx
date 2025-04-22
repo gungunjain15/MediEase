@@ -5,7 +5,10 @@ import { toast } from 'react-toastify';
 export const AdminContext = createContext();
 
 const AdminContextProvider = (props) => {
-  const [aToken, setAToken] = useState('dev-token'); // Mock token
+  // const [aToken, setAToken] = useState('dev-token'); // Mock token
+
+  const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '');
+
   const [doctors, setDoctors] = useState([]);
   const [appointments, setAppointments] = useState([]);
   const [dashData, setDashData] = useState(false);
@@ -15,7 +18,7 @@ const AdminContextProvider = (props) => {
     try {
       const { data } = await axios.get(`${backendUrl}/api/admin/all-doctors`, {
         headers: {
-          'Authorization': `Bearer ${aToken}`
+          aToken
         }
       });
 
@@ -26,8 +29,7 @@ const AdminContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || error.message);
-      console.error('Error fetching doctors:', error);
+      toast.error(error.message);
     }
   };
 
@@ -38,7 +40,7 @@ const AdminContextProvider = (props) => {
         { docId },
         {
           headers: {
-            'Authorization': `Bearer ${aToken}`
+            aToken
           }
         }
       );
@@ -50,7 +52,7 @@ const AdminContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || error.message);
+      toast.error(error.message);
     }
   };
 
@@ -60,7 +62,7 @@ const AdminContextProvider = (props) => {
         `${backendUrl}/api/admin/appointments`,
         {
           headers: {
-            'Authorization': `Bearer ${aToken}`
+            aToken
           }
         }
       );
@@ -72,7 +74,7 @@ const AdminContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || error.message);
+      toast.error(error.message);
     }
   };
 
@@ -83,7 +85,7 @@ const AdminContextProvider = (props) => {
         { appointmentId },
         {
           headers: {
-            'Authorization': `Bearer ${aToken}`
+            aToken
           }
         }
       );
@@ -95,7 +97,7 @@ const AdminContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || error.message);
+      toast.error(error.message);
     }
   };
 
@@ -105,7 +107,7 @@ const AdminContextProvider = (props) => {
         `${backendUrl}/api/admin/dashboard`,
         {
           headers: {
-            'Authorization': `Bearer ${aToken}`
+            aToken
           }
         }
       );
@@ -117,7 +119,7 @@ const AdminContextProvider = (props) => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || error.message);
+      toast.error(error.message);
     }
   };
 

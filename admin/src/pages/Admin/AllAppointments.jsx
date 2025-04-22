@@ -69,7 +69,7 @@ const AllAppointments = () => {
             <div className="flex justify-end">
               {item.cancelled ? (
                 <p className="text-red-400 text-xs font-medium">Cancelled</p>
-              ) : (
+              ) : item.isCompleted ? <p className="text-green-500 text-xs font-medium">Completed</p>:(
                 <img
                   className="w-10 cursor-pointer hover:opacity-80"
                   src={assets.cancel_icon}
